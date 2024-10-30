@@ -8,14 +8,16 @@ let img1 = 12;
 let img2 = 12;
 let iniciado = 0;
 
-function iniciar() { // Función para iniciar y reiniciar el juego
+// Función para iniciar y reiniciar el juego
+function iniciar() { 
     reset();
     pon_imagen();
     genera_imagen();
     iniciado = 1;
 }
 
-function reset() { //reset al nuemero de veces que se ha obtenido la imagen, a los parrafos de resultado y se oculta el botón de reset
+//reset al nuemero de veces que se ha obtenido la imagen, a los parrafos de resultado y se oculta el botón de reset
+function reset() { 
     for (i in imagenes){ // hago reset al numero de veces que he obtenido la imagen
         if (i<2){
             veces.splice(i,1,2);
@@ -30,7 +32,8 @@ function reset() { //reset al nuemero de veces que se ha obtenido la imagen, a l
 
 }
 
-function pon_imagen() { // función para generar los div con las imagenes
+// función para generar los div con las imagenes
+function pon_imagen() { 
     if (iniciado==1) { // compruebo si no es la primera partida y en caso de no serlo borro las imagenes
         let remove_ubi_scene = document.getElementsByClassName("scene");
         for (i in imagenes_random){
@@ -65,7 +68,8 @@ function pon_imagen() { // función para generar los div con las imagenes
     }
 }
 
-function genera_imagen(){ // genero un array donde guardo la posición sin repetir más de 2 veces que corresponde al nombre de la imagen
+// genero un array donde guardo la posición sin repetir más de 2 veces que corresponde al nombre de la imagen
+function genera_imagen(){ 
     let imagen;
 
     for (i = 0; i <12 ; i++) { 
@@ -83,7 +87,8 @@ function genera_imagen(){ // genero un array donde guardo la posición sin repet
     }
 }
 
-function girar(elemento) { // función para guardar la imagen pulsada (img1 para la primera y img2 para la segunda) y para girar la carta
+// función para guardar la imagen pulsada (img1 para la primera y img2 para la segunda) y para girar la carta
+function girar(elemento) { 
     if (imagenes_random[elemento]!=0){
         if (img1>11) {
             img1 = elemento;
@@ -102,7 +107,8 @@ function girar(elemento) { // función para guardar la imagen pulsada (img1 para
     });            
 }
 
-function comprobar(elemento) { // funcion para comprobar si la carta 1 es igual a la carta 2 y si es la última jugada
+// funcion para comprobar si la carta 1 es igual a la carta 2 y si es la última jugada
+function comprobar(elemento) { 
     let puntos = parseInt(document.getElementById("result").innerHTML);
     let fin = 0;
     if (img2<12 && imagenes_random[img1]!=0 && imagenes_random[img2]!=0){
